@@ -1,0 +1,13 @@
+FROM python:3.11
+
+RUN pip install numpy numba
+RUN pip install ipython
+RUN pip install nbformat
+
+RUN mkdir /app
+WORKDIR /app
+
+COPY ./pi.ipynb /app/
+
+CMD ["ipython", "/app/pi.ipynb", "10**5"]
+
